@@ -145,7 +145,7 @@ def show_education():
             st.write("### Professional Certification in Data Science Engineering")
             st.write("**Great Learning, Pune**")
             st.write("**Duration:** August 2023 - April 2024")
-            st.write("**Program:** PGP Data Science Engineering | [Academic e-Portfolio](https://eportfolio.mygreatlearning.com/niraj-chaudhari)")
+            st.write("**Program:** PGP Data Science Engineering ")
             st.write("**Description:**")
             st.write("I successfully completed a rigorous 8-month-long classroom program in Data Science Engineering from Great Learning, Pune, in association with Great Lakes Institute of Management. This comprehensive program involved mastering Python for exploratory data analysis, various visualization techniques, and machine learning, along with MySQL for database management. The program's rigorous nature required clearing 10 modules with over 60% marks, multiple vivas, and a capstone project.")
         with col_x1:
