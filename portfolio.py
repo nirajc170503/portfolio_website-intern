@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import base64
 import streamlit.components.v1 as components
 
 # Set page title and icon
@@ -21,11 +20,45 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Custom CSS for styling
+st.markdown("""
+    <style>
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4F8BF9;
+            margin-top: 50px;
+        }
+        .section-divider {
+            margin: 50px 0;
+            height: 2px;
+            background-color: #4F8BF9;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        background-color: #f0f2f6;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.sidebar.title("Navigation")
+st.sidebar.markdown("<br>", unsafe_allow_html=True)  # Add empty space
 st.sidebar.markdown("[Introduction](#introduction)")
 st.sidebar.markdown("[Education](#education)")
 st.sidebar.markdown("[Skills](#skills)")
 st.sidebar.markdown("[Projects](#projects)")
+st.sidebar.markdown("[Contact](#contact)")
 
 
 
@@ -38,8 +71,8 @@ def show_introduction():
     title = "Aspiring Data Analyst/Data Scientist"
     
     description = """
-Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science and analytics. Transitioning from a non-IT background, I made a conscious decision to enter this field. I completed my graduation last year and further honed my skills through an intensive 8-month-long data science bootcamp. Studying data science for quite some time, I am now 21 years old and eager to kickstart my career in this dynamic field, contributing meaningfully along the way. Currently, I am actively seeking internship opportunities to apply my skills and gain valuable experience in the industry.
-"""
+        Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science and analytics. Transitioning from a non-IT background, I made a conscious decision to enter this field. I completed my graduation last year and further honed my skills through an intensive 8-month-long data science bootcamp. Studying data science for quite some time, I am now 21 years old and eager to kickstart my career in this dynamic field, contributing meaningfully along the way. Currently, I am actively seeking internship opportunities to apply my skills and gain valuable experience in the industry.
+    """
     
 
     
@@ -58,8 +91,25 @@ Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science an
             
             st.title(name)
             st.subheader(title)
+            st.write("**Location:** Pune, Maharashtra, India")
+
             st.write(description)
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+            
+            
+            # resume button
+            resume_file_path = r"C:\Users\Amruta\Desktop\Niraj's Project\resume\Resume - Niraj Chaudhari.pdf"
+
+            with open(resume_file_path, "rb") as file:
+                resume_pdf = file.read()
+                
+            # Add a download button for the resume in the sidebar
+            st.download_button(
+                label="📄 Download Resume",
+                data=resume_pdf,
+                file_name="Niraj_Chaudhari_Resume.pdf",
+                mime="application/pdf"
+            )
 
             st.markdown("""
             <div style="padding: 10px; background-color: #f0f0f0; border-radius: 5px; text-align: center;">
@@ -67,42 +117,12 @@ Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science an
                 <p style="color: #333;">If you have an opening for a Data Analytics internship, I'd love to connect!</p>
             </div>
             """, unsafe_allow_html=True)
-                    
-            # Load icons
-            icon_gmail = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\gmail_icon.png")
-            icon_phone = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\phone_icon.png")
-            icon_contact = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\contact_icon.png")
-            icon_github = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\github_icon.png")
-            icon_linkedin = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\linkedin_icon.png")
-
-            # Create the contact section
-            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            st.subheader("Contact Details")
-
-            with st.container():
-                col1,col3,col4,col6 = st.columns([0.05,0.3,0.05,0.3])
-                
             
-
-                # Email
-                with col1:
-                    st.image(icon_gmail, width=30)
-                    st.image(icon_phone, width=30)
-                
-                with col3:
-                    st.write("nirajchaudhari170503@gmail.com")
-                    st.write("+91-8767281554")
-
-                
-
-                # LinkedIn
-                with col4:
-                    st.image(icon_linkedin, width=30)
-                    st.image(icon_github, width=30)
-                
-                with col6:
-                    st.write("[LinkedIn](https://www.linkedin.com/in/niraj-chaudhari-50307a243/)")
-                    st.write("[GitHub](https://github.com/nirajc170503)")
+            
+            
+            
+                    
+            
        
         
 def show_education():
@@ -637,7 +657,47 @@ def show_projects():
             st.image(project_img, use_column_width=True)            
 
 
-   
+def show_contact():
+    with st.container():
+        # Load icons
+            icon_gmail = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\gmail_icon.png")
+            icon_phone = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\phone_icon.png")
+            icon_contact = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\contact_icon.png")
+            icon_github = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\github_icon.png")
+            icon_linkedin = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\linkedin_icon.png")
+
+            # Create the contact section
+            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+            st.subheader("Contact Details")
+
+            with st.container():
+                col1,col2,col3,col4 = st.columns(4)
+                
+            
+
+                # Email
+                with col1:
+                    st.image(icon_gmail, width=30)
+                    st.write("nirajchaudhari170503@gmail.com")
+                
+                with col2:
+                    
+                    st.image(icon_phone, width=30)
+                    st.write("+91-8767281554")
+
+                
+
+                # LinkedIn
+                with col3:
+                    st.image(icon_linkedin, width=30)
+                    st.write("[LinkedIn](https://www.linkedin.com/in/niraj-chaudhari-50307a243/)")
+
+                
+                with col4:
+                    st.image(icon_github, width=30)
+                    st.write("[GitHub](https://github.com/nirajc170503)")
+
+
 
 
 
@@ -646,20 +706,36 @@ def show_projects():
 
 # Introduction section
 st.markdown("<a name='introduction'></a>", unsafe_allow_html=True)
-st.title("Introduction")
+st.markdown("<div class='section-title'>Introduction</div>", unsafe_allow_html=True)
 show_introduction()
+
+st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
+
 
 # Education section
 st.markdown("<a name='education'></a>", unsafe_allow_html=True)
-st.title("Education")
+st.markdown("<div class='section-title'>Education</div>", unsafe_allow_html=True)
 show_education()
+
+st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 
 # Skills section
 st.markdown("<a name='skills'></a>", unsafe_allow_html=True)
-st.title("Skills")
+st.markdown("<div class='section-title'>Skills</div>", unsafe_allow_html=True)
 show_skills()
+
+st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 
 # Projects section
 st.markdown("<a name='projects'></a>", unsafe_allow_html=True)
-st.title("Projects")
+st.markdown("<div class='section-title'>Projects</div>", unsafe_allow_html=True)
 show_projects()
+
+st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
+
+# contact section
+st.markdown("<a name='contact'></a>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>Contact</div>", unsafe_allow_html=True)
+show_contact()
+
+st.markdown("<div style='padding-bottom: 50px;'></div>", unsafe_allow_html=True)
