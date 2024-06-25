@@ -1,5 +1,7 @@
+
 import streamlit as st
 from PIL import Image
+import base64
 import streamlit.components.v1 as components
 
 # Set page title and icon
@@ -62,7 +64,6 @@ st.sidebar.markdown("[Contact](#contact)")
 
 
 
-
 def show_introduction():
 
 
@@ -71,8 +72,8 @@ def show_introduction():
     title = "Aspiring Data Analyst/Data Scientist"
     
     description = """
-        Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science and analytics. Transitioning from a non-IT background, I made a conscious decision to enter this field. I completed my graduation last year and further honed my skills through an intensive 8-month-long data science bootcamp. Studying data science for quite some time, I am now 21 years old and eager to kickstart my career in this dynamic field, contributing meaningfully along the way. Currently, I am actively seeking internship opportunities to apply my skills and gain valuable experience in the industry.
-    """
+Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science and analytics. Transitioning from a non-IT background, I made a conscious decision to enter this field. I completed my graduation last year and further honed my skills through an intensive 8-month-long data science bootcamp. Studying data science for quite some time, I am now 21 years old and eager to kickstart my career in this dynamic field, contributing meaningfully along the way. Currently, I am actively seeking internship opportunities to apply my skills and gain valuable experience in the industry.
+"""
     
 
     
@@ -84,7 +85,7 @@ def show_introduction():
         
         with col1:
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            profile_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\Profile_pic.jpeg")
+            profile_img = Image.open("./images/Profile_pic.jpeg")
             st.image(profile_img, use_column_width=True)
         
         with col2:
@@ -95,10 +96,9 @@ def show_introduction():
 
             st.write(description)
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            
-            
+
             # resume button
-            resume_file_path = r"C:\Users\Amruta\Desktop\Niraj's Project\resume\Resume - Niraj Chaudhari.pdf"
+            resume_file_path = "./resume/Resume - Niraj Chaudhari.pdf"
 
             with open(resume_file_path, "rb") as file:
                 resume_pdf = file.read()
@@ -110,6 +110,7 @@ def show_introduction():
                 file_name="Niraj_Chaudhari_Resume.pdf",
                 mime="application/pdf"
             )
+            
 
             st.markdown("""
             <div style="padding: 10px; background-color: #f0f0f0; border-radius: 5px; text-align: center;">
@@ -117,11 +118,11 @@ def show_introduction():
                 <p style="color: #333;">If you have an opening for a Data Analytics internship, I'd love to connect!</p>
             </div>
             """, unsafe_allow_html=True)
-            
-            
-            
-            
                     
+            
+                
+            
+
             
        
         
@@ -137,7 +138,7 @@ def show_education():
         col1, col2, col_x1 = st.columns([1, 5, 1])
         with col1:
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            img_logo = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\Great_Learning_Logo.jpg")
+            img_logo = Image.open("./images/Great_Learning_Logo.jpg")
             st.image(img_logo, use_column_width=True)
         with col2:
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
@@ -151,11 +152,11 @@ def show_education():
             # Certification and Transcript Column
             
             st.write("**Certification:**")
-            img_cert = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\GL_certificate.jpg")
+            img_cert = Image.open("./images/GL_certificate.jpg")
             st.image(img_cert, use_column_width=True)
 
             st.write("**Transcript:**")
-            img_transcript = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\transcript1.jpg")
+            img_transcript = Image.open("./images/transcript1.jpg")
             st.image(img_transcript, use_column_width=True)
         
         
@@ -166,7 +167,7 @@ def show_education():
             # Second Certification: IIT Madras
             col5, col6, col7 = st.columns([1, 5, 1])
             with col5:
-                img_logo_iitm = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\IITM _logo.jpg")
+                img_logo_iitm = Image.open("./images/IITM _logo.jpg")
                 st.image(img_logo_iitm, use_column_width=True)
             with col6:
                 st.write("### Foundation Level in Programming and Data Science")
@@ -178,11 +179,11 @@ def show_education():
             with col7:
                 
                 st.write("**Certification:**")
-                img_cert_iitm = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\IITM_certificate_img.png")
+                img_cert_iitm = Image.open("./images/IITM_certificate_img.png")
                 st.image(img_cert_iitm, use_column_width=True)    
             
                 st.write("**Grade Card:**")  
-                img_gradecard = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\IITM_gradecard.png")
+                img_gradecard = Image.open("./images/IITM_gradecard.png")
                 st.image(img_gradecard, use_column_width=True)
         
         
@@ -293,7 +294,7 @@ def show_projects():
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
 
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\home_credit_img.jpeg")
+            project_img = Image.open("./images/home_credit_img.jpeg")
             st.image(project_img, use_column_width=True)
 
 
@@ -335,14 +336,14 @@ def show_projects():
             with col1:
                 st.subheader("1. Data Preprocessing")
                 st.write("Cleaned datasets, handled missing values, and generated new features.")
-                html_file_path1 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\Data Preprocessing File1.html"
+                html_file_path1 = "./html/Data Preprocessing File1.html"
                 notebook_html1 = read_html(html_file_path1)
                 st.components.v1.html(notebook_html1, height=300, scrolling=True)
 
             with col2:
                 st.subheader("2. Feature Engineering")
                 st.write("Used recursive feature elimination to reduce features.")
-                html_file_path2 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\Feature Engineering File 2.html"
+                html_file_path2 = "./html/Feature Engineering File 2.html"
                 notebook_html2 = read_html(html_file_path2)
                 st.components.v1.html(notebook_html2, height=300, scrolling=True)
 
@@ -351,14 +352,14 @@ def show_projects():
             with col3:
                 st.subheader("3. Exploratory Data Analysis (EDA)")
                 st.write("Analyzed data, plotted distributions, treated outliers, and scaled features.")
-                html_file_path3 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\EDA File3.html"
+                html_file_path3 = "./html/EDA File3.html"
                 notebook_html3 = read_html(html_file_path3)
                 st.components.v1.html(notebook_html3, height=300, scrolling=True)
 
             with col4:
                 st.subheader("4. Assumption Testing")
                 st.write("Checked assumptions required for logistic regression.")
-                html_file_path4 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\Assumptions File4.html"
+                html_file_path4 = "./html/Assumptions File4.html"
                 notebook_html4 = read_html(html_file_path4)
                 st.components.v1.html(notebook_html4, height=300, scrolling=True)
 
@@ -367,14 +368,14 @@ def show_projects():
             with col5:
                 st.subheader("5. Base Model - Logistic Regression")
                 st.write("Evaluated logistic regression model using confusion matrix and classification report.")
-                html_file_path5 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\Base model-Logistic regression File 5.html"
+                html_file_path5 = "./html/Base model-Logistic regression File 5.html"
                 notebook_html5 = read_html(html_file_path5)
                 st.components.v1.html(notebook_html5, height=300, scrolling=True)
 
             with col6:
                 st.subheader("6. Machine Learning Models")
                 st.write("Implemented decision tree, KNN, random forest, AdaBoost, and XGBoost models using the SMOTE dataset.")
-                html_file_path6 = r"C:\Users\Amruta\Desktop\Niraj's Project\html\ML models File 6.html"
+                html_file_path6 = "./html/ML models File 6.html"
                 notebook_html6 = read_html(html_file_path6)
                 st.components.v1.html(notebook_html6, height=300, scrolling=True)
 
@@ -401,7 +402,7 @@ def show_projects():
             st.write("[GitHub Project Link](https://github.com/nirajc170503/Stock-tracker-App)")
 
         with col2:
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\web_app_img.jpeg")
+            project_img = Image.open("./images/web_app_img.jpeg")
             st.image(project_img, use_column_width=True)
             
     # Button for toggling detailed information
@@ -453,7 +454,7 @@ def show_projects():
 
             with col2:
                 st.write("### Jupyter Notebook")
-                html_file_path = r"C:\Users\Amruta\Desktop\Niraj's Project\html\web_app_code.html"
+                html_file_path = "./html/web_app_code.html"
                 notebook_html = read_html(html_file_path)
                 st.components.v1.html(notebook_html, height=500, scrolling=True)
 
@@ -490,7 +491,7 @@ def show_projects():
             """)
             st.write("[GitHub Project Link](https://github.com/nirajc170503/Analysis-of-Zomato-dataset)")
         with col2:
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\Zomato_logo.jpeg")
+            project_img = Image.open("./images/Zomato_logo.jpeg")
             st.image(project_img, use_column_width=True)
             
             
@@ -526,7 +527,7 @@ def show_projects():
 
             with col2:
                 st.write("### Jupyter Notebook")
-                html_file_path = r"C:\Users\Amruta\Desktop\Niraj's Project\html\MINI_project.html"
+                html_file_path = "./html/MINI_project.html"
                 notebook_html = read_html(html_file_path)
                 st.components.v1.html(notebook_html, height=500, scrolling=True)
 
@@ -550,7 +551,7 @@ def show_projects():
             st.write("[GitHub Project Link](https://github.com/nirajc170503/Data-Extraction-Sentiment-Analysis)")
 
         with col2:
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\web_scraping_logo.jpeg")
+            project_img = Image.open("./images/web_scraping_logo.jpeg")
             st.image(project_img, use_column_width=True)
 
     # Button for toggling detailed information
@@ -576,7 +577,7 @@ def show_projects():
             
         with col2:
                 st.write("### Jupyter Notebook")
-                html_file_path = r"C:\Users\Amruta\Desktop\Niraj's Project\html\Blackcoffer project.html"
+                html_file_path = "./html/Blackcoffer project.html"
                 notebook_html = read_html(html_file_path)
                 st.components.v1.html(notebook_html, height=300, scrolling=True)
 
@@ -598,7 +599,7 @@ def show_projects():
             st.write("[GitHub Project Link](https://github.com/nirajc170503/SQL-Mini-Project)")
 
         with col2:
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\sql_image.png")
+            project_img = Image.open("./images/sql_image.png")
             st.image(project_img, use_column_width=True)
 
     # Button for toggling detailed information
@@ -653,18 +654,18 @@ def show_projects():
         with col2:
             
 
-            project_img = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\portfolio_image.jpeg")
+            project_img = Image.open("./images/portfolio_image.jpeg")
             st.image(project_img, use_column_width=True)            
 
 
 def show_contact():
     with st.container():
         # Load icons
-            icon_gmail = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\gmail_icon.png")
-            icon_phone = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\phone_icon.png")
-            icon_contact = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\contact_icon.png")
-            icon_github = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\github_icon.png")
-            icon_linkedin = Image.open(r"C:\Users\Amruta\Desktop\Niraj's Project\images\contact_icons\linkedin_icon.png")
+            icon_gmail = Image.open("./images/contact_icons/gmail_icon.png")
+            icon_phone = Image.open("./images/contact_icons/phone_icon.png")
+            icon_contact = Image.open("./images/contact_icons/contact_icon.png")
+            icon_github = Image.open("./images/contact_icons/github_icon.png")
+            icon_linkedin = Image.open("./images/contact_icons/linkedin_icon.png")
 
             # Create the contact section
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
@@ -700,6 +701,9 @@ def show_contact():
 
 
 
+   
+
+
 
 
 
@@ -730,8 +734,6 @@ st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 st.markdown("<a name='projects'></a>", unsafe_allow_html=True)
 st.markdown("<div class='section-title'>Projects</div>", unsafe_allow_html=True)
 show_projects()
-
-st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 
 # contact section
 st.markdown("<a name='contact'></a>", unsafe_allow_html=True)
