@@ -53,9 +53,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.sidebar.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+profile_img = Image.open("./images/Profile_pic.jpeg")
+st.sidebar.image(profile_img, use_column_width=True)
 
 st.sidebar.title("Navigation")
-st.sidebar.markdown("<br>", unsafe_allow_html=True)  # Add empty space
 st.sidebar.markdown("[Introduction](#introduction)")
 st.sidebar.markdown("[Education](#education)")
 st.sidebar.markdown("[Skills](#skills)")
