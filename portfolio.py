@@ -81,12 +81,13 @@ Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science an
 
     # Introduction Section
     with st.container():
-        col1, col2 = st.columns([1, 3])
+        col1, col2 = st.columns([1, 2.25])
         
         with col1:
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            profile_img = Image.open("./images/Profile_pic.jpeg")
-            st.image(profile_img, use_column_width=True)
+            
+            st.video("https://youtu.be/NpaT3bWs74w?si=NQBkKJA7r67Bluny")
+
         
         with col2:
             
@@ -96,28 +97,38 @@ Hello! I'm Niraj Chaudhari, a recent graduate with a passion for data science an
 
             st.write(description)
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-
-            # resume button
-            resume_file_path = "./resume/Resume - Niraj Chaudhari.pdf"
-
-            with open(resume_file_path, "rb") as file:
-                resume_pdf = file.read()
-                
-            # Add a download button for the resume in the sidebar
-            st.download_button(
-                label="📄 Download Resume",
-                data=resume_pdf,
-                file_name="Niraj_Chaudhari_Resume.pdf",
-                mime="application/pdf"
-            )
             
+            
+            col1, col2 = st.columns([2, 1])
+            with col1:
+                st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+                st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+    
+                st.markdown("""
+                <div style="padding: 10px; background-color: #f0f0f0; border-radius: 5px; text-align: center;">
+                    <h3 style="color: #d9534f;">Currently Seeking Internship Opportunities</h3>
+                    <p style="color: #333;">If you have an opening for a Data Analytics or Data Science internship, I'd love to connect!</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+            with col2:
+                # resume button
+                resume_file_path = "./resume/Resume - Niraj Chaudhari.pdf"
 
-            st.markdown("""
-            <div style="padding: 10px; background-color: #f0f0f0; border-radius: 5px; text-align: center;">
-                <h3 style="color: #d9534f;">Currently Seeking Internship Opportunities</h3>
-                <p style="color: #333;">If you have an opening for a Data Analytics internship, I'd love to connect!</p>
-            </div>
-            """, unsafe_allow_html=True)
+                with open(resume_file_path, "rb") as file:
+                    resume_pdf = file.read()
+                    
+                # Add a download button for the resume in the sidebar
+                st.download_button(
+                    label="📄 Download My Resume",
+                    data=resume_pdf,
+                    file_name="Niraj_Chaudhari_Resume.pdf",
+                    mime="application/pdf"
+                )
+                
+                profile_img = Image.open("./images/Resume - Niraj Chaudhari_image.jpg")
+                st.image(profile_img, use_column_width=True)
+                st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
                     
             
                 
@@ -734,6 +745,8 @@ st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 st.markdown("<a name='projects'></a>", unsafe_allow_html=True)
 st.markdown("<div class='section-title'>Projects</div>", unsafe_allow_html=True)
 show_projects()
+
+st.markdown("<div class='section-divider'></div>", unsafe_allow_html=True)
 
 # contact section
 st.markdown("<a name='contact'></a>", unsafe_allow_html=True)
