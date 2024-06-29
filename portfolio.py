@@ -410,22 +410,31 @@ def show_projects():
     st.subheader("PROJECT 2: Stock Analysis Web App  [  (Link)](https://stock-tracker-app.streamlit.app/)")
 
     with st.container():
-        col1, col2 = st.columns([2.5, 1])
+        col1, col2 = st.columns([1.75, 1])
         
         with col1:
+            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+
             st.write("""
-            **Project Summary: Stock Analysis App**  
             
-            - **Volatility Analysis**: Interactive area charts, adjustable timeframes, key metrics display.
-            - **Bollinger Bands Analysis**: Customizable parameters, metrics display, interactive visualizations.
-            - **Strength Analysis**: Dynamic highlighting, customizable parameters, easy identification of thresholds.
-            - **Momentum Analysis**: Histogram display, customizable parameters, trend and momentum identification.
+            The Stock Analysis and Visualization App is a comprehensive tool developed using Streamlit for analyzing various financial KPIs of stocks. It offers advanced interactive visualizations for volatility analysis, Bollinger Bands, RSI, and MACD, allowing users to adjust parameters and gain insights into stock price movements, volatility, and trend changes.
+
             """)
+            
+            st.write(""" 
+                     ##### Skills Used:
+                    - **Programming Languages**: Python
+                    - **Libraries**: Yfinance, NumPy, pandas, matplotlib, plotly
+                    - **Techniques**: Data Preprocessing, Data Visualization, Data Analysis
+                    - **Deployment**: Streamlit
+                """)
+            
             st.write("[GitHub Project Link](https://github.com/nirajc170503/Stock-tracker-App)")
 
         with col2:
-            project_img = Image.open("./images/web_app_img.jpeg")
-            st.image(project_img, use_column_width=True)
+            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
+
+            st.video("https://youtu.be/d8R9UyUO5YQ?si=FMc07WpHDzQbrDl2")
             
     # Button for toggling detailed information
     if "stock_analysis_show_details" not in st.session_state:
@@ -442,26 +451,7 @@ def show_projects():
             with col1:
                 st.subheader("Detailed Description")
                 st.write("""
-                **Overview**:
-                The Stock Analysis and Visualization App is a comprehensive tool developed using Streamlit for analyzing various financial KPIs of stocks. It offers advanced interactive visualizations and machine learning models for insightful analysis and predictions.
-
-                **Key Features**:
-                - **Volatility Analysis**:
-                    - Visualize stock volatility using area charts.
-                    - Select timeframe for analysis (1 month to all time).
-                    - Display key metrics like average and current volatility.
-                - **Bollinger Bands Analysis**:
-                    - Visualize Bollinger Bands for stock price movements.
-                    - Adjust window size and standard deviations.
-                    - Display metrics such as percentage above/below the band.
-                - **RSI Analysis**:
-                    - Visualize RSI to identify overbought/oversold conditions.
-                    - Highlight RSI thresholds for easy identification.
-                    - Set window size and thresholds for conditions.
-                - **MACD Analysis**:
-                    - Visualize MACD for trend changes and momentum.
-                    - Show MACD histogram for trend analysis.
-                    - Set short-term, long-term, and signal window sizes.
+                
                     
                 **User-Friendly Interface**:
                 - Intuitive Layout: Organized containers and columns for a clean and professional look.
