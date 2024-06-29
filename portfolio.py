@@ -290,25 +290,24 @@ def show_projects():
     with st.container():
         col1, col2 = st.columns([2.5, 1])
         with col1:
+            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
             st.write("""
             This project analyzes loan applicant data to predict defaults using supervised machine learning techniques. 
             The goal is to help lenders make informed decisions and mitigate risks by identifying applicants who are likely to default.
             """)
 
-            st.write("""
-            - **Credit Risk Analysis**: Addressing a critical issue in the banking sector by predicting loan defaults to prevent non-performing loans and financial losses.
-            - **Home Credit**: Analyzing data provided by Home Credit Group, a global consumer finance provider operating in 9 countries.
-            - **Machine Learning Techniques**: Using supervised learning techniques such as logistic regression, decision tree, KNN, random forest, AdaBoost, and XGBoost.
-            - **Comprehensive Data Processing**: Including data preprocessing, feature engineering, exploratory data analysis, and assumption testing.
-            """)
+            st.write(""" 
+                     ##### Skills Used:
+                    - **Programming Languages**: Python
+                    - **Libraries**: NumPy, pandas, matplotlib, seaborn
+                    - **Techniques**: Data Preprocessing, Data Visualization, Feature Engineering, Machine Learning
+                """)
+            
             st.write("[GitHub Project Link](https://github.com/nirajc170503/Loan-Default-Prediction)")
             
         with col2:
-            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-            st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
 
-            project_img = Image.open("./images/home_credit_img.jpeg")
-            st.image(project_img, use_column_width=True)
+            st.video("https://youtu.be/zzySbVmpaUc?si=CcAsRViDHa1xTBCt")
 
 
     # Button for toggling detailed information
@@ -322,40 +321,54 @@ def show_projects():
     if st.session_state.show_details:
         with st.container():
 
-            st.header("Detailed Description")
-            st.write("""
-            **Home Credit Default Risk**
+            st.subheader("Detailed Description")
+            part1, part2 = st.columns(2)
+            
+            
+            with part1:
+                
+                st.write("""
 
-            Credit-lending plays a significant role in the banking sector. But the increase in non-performing loans has made the banking sector face huge losses and also has an impact on the economy of the country or the world. Thus an existential problem for any Loan provider today is to find out the Loan applicants who are very likely to repay the loan. This way companies can avoid losses and incur huge profits.
+                    #### About Home Credit and the Dataset
 
-            In this project, we are going to take the loan applicant data provided by Home Credit and identify the applicants who are most likely to default using Supervised machine learning.
+                    Founded in 1997, Home Credit Group is a global finance provider operating in 9 countries, empowering underserved customers to borrow safely. The dataset is from the Home Credit Default Risk competition on Kaggle, featuring multiple files of applicant data. The goal is to predict the likelihood of loan defaults to improve lending decisions.
+                    [Dataset link](https://www.kaggle.com/c/home-credit-default-risk/data)
+                 """)
 
-            **About Home Credit**
+                dataset_img = Image.open("./images/home_credit_dataset_image.png")
+                st.image(dataset_img, use_column_width=True)
+                
+            with part2:
+                
+                st.write("""
+                        
+                        #### Project Cycle
+                        1. **Data Preprocessing**: Cleaned datasets, handled missing values, and generated new features.
+                            
+                        2. **Feature Engineering**: Used recursive feature elimination to reduce features.
+                            
+                        3. **Exploratory Data Analysis (EDA)**: Analyzed data, plotted distributions, treated outliers, and scaled features.
+                        
+                        4. **Assumption Testing**: Checked assumptions required for logistic regression.
+                            
+                        5. **Base Model - Logistic Regression**: Evaluated logistic regression model using confusion matrix and classification report.
+                            
+                        6. **Machine Learning Models**: Implemented decision tree, KNN, random forest, AdaBoost, and XGBoost models using the SMOTE dataset.
+             
+                    """)
 
-            Home Credit Group is a global consumer finance provider founded in 1997, operating in 9 countries. 
-            It empowers underserved customers with little or no credit history by enabling them to borrow easily and safely.
-            """)
-
-            st.header("Dataset")
-            st.write("""
-            The dataset is sourced from the Home Credit Default Risk competition on Kaggle, consisting of multiple files related to applicant data. 
-            [Dataset link](https://www.kaggle.com/c/home-credit-default-risk/data)
-            """)
-
-            st.header("Project Cycle and Notebooks")
+            st.subheader("Project Cycle and Code")
 
             # First Row
             col1, col2 = st.columns(2)
             with col1:
                 st.subheader("1. Data Preprocessing")
-                st.write("Cleaned datasets, handled missing values, and generated new features.")
                 html_file_path1 = "./html/Data Preprocessing File1.html"
                 notebook_html1 = read_html(html_file_path1)
                 st.components.v1.html(notebook_html1, height=300, scrolling=True)
 
             with col2:
                 st.subheader("2. Feature Engineering")
-                st.write("Used recursive feature elimination to reduce features.")
                 html_file_path2 = "./html/Feature Engineering File 2.html"
                 notebook_html2 = read_html(html_file_path2)
                 st.components.v1.html(notebook_html2, height=300, scrolling=True)
@@ -364,14 +377,12 @@ def show_projects():
             col3, col4 = st.columns(2)
             with col3:
                 st.subheader("3. Exploratory Data Analysis (EDA)")
-                st.write("Analyzed data, plotted distributions, treated outliers, and scaled features.")
                 html_file_path3 = "./html/EDA File3.html"
                 notebook_html3 = read_html(html_file_path3)
                 st.components.v1.html(notebook_html3, height=300, scrolling=True)
 
             with col4:
                 st.subheader("4. Assumption Testing")
-                st.write("Checked assumptions required for logistic regression.")
                 html_file_path4 = "./html/Assumptions File4.html"
                 notebook_html4 = read_html(html_file_path4)
                 st.components.v1.html(notebook_html4, height=300, scrolling=True)
@@ -380,21 +391,19 @@ def show_projects():
             col5, col6 = st.columns(2)
             with col5:
                 st.subheader("5. Base Model - Logistic Regression")
-                st.write("Evaluated logistic regression model using confusion matrix and classification report.")
                 html_file_path5 = "./html/Base model-Logistic regression File 5.html"
                 notebook_html5 = read_html(html_file_path5)
                 st.components.v1.html(notebook_html5, height=300, scrolling=True)
 
             with col6:
                 st.subheader("6. Machine Learning Models")
-                st.write("Implemented decision tree, KNN, random forest, AdaBoost, and XGBoost models using the SMOTE dataset.")
                 html_file_path6 = "./html/ML models File 6.html"
                 notebook_html6 = read_html(html_file_path6)
                 st.components.v1.html(notebook_html6, height=300, scrolling=True)
 
 
     st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
-
+    st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
 
     
     
