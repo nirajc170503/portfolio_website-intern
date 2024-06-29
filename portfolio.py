@@ -288,7 +288,7 @@ def show_projects():
     st.subheader("PROJECT 1: Loan Default Analysis & Prediction")
 
     with st.container():
-        col1, col2 = st.columns([2.5, 1])
+        col1, col2 = st.columns([1.75, 1])
         with col1:
             st.markdown("<br>", unsafe_allow_html=True)  # Add empty space
             st.write("""
